@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formulario_De_Registro", "Formulario_De_Registro\Formulario_De_Registro.csproj", "{B07C7A90-C3F4-4756-A0F4-4466F33B87E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B07C7A90-C3F4-4756-A0F4-4466F33B87E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B07C7A90-C3F4-4756-A0F4-4466F33B87E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B07C7A90-C3F4-4756-A0F4-4466F33B87E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B07C7A90-C3F4-4756-A0F4-4466F33B87E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FECE7EA1-2A1C-4780-BAAC-F4284CF8EB19}
+	EndGlobalSection
+EndGlobal
