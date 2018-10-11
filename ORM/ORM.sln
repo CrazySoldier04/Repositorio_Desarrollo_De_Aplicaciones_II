@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORM", "ORM\ORM.csproj", "{4FDCE292-0276-4D8B-B7E0-BD759868F5C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibBaseDatosORM", "LibBaseDatosORM\LibBaseDatosORM.csproj", "{B1984CE0-180E-463C-A379-0EB2DA2C6447}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4FDCE292-0276-4D8B-B7E0-BD759868F5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FDCE292-0276-4D8B-B7E0-BD759868F5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FDCE292-0276-4D8B-B7E0-BD759868F5C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1984CE0-180E-463C-A379-0EB2DA2C6447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1984CE0-180E-463C-A379-0EB2DA2C6447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1984CE0-180E-463C-A379-0EB2DA2C6447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1984CE0-180E-463C-A379-0EB2DA2C6447}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

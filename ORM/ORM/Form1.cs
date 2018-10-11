@@ -22,5 +22,15 @@ namespace ORM
         {
 
         }
+
+        private void pbxCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
