@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using LibBaseDatosORM;
 using MySql.Data.MySqlClient;
 
 namespace LibBaseDatosORM
@@ -16,6 +17,7 @@ namespace LibBaseDatosORM
         MySqlCommand cmd;
         MySqlDataAdapter da;
         MySqlDataReader dr;
+        DataTable dt;
 
         /// <summary>
         ///Con este método se realiza una conexión al servidor de MySql con los parámetros por default.
@@ -78,6 +80,58 @@ namespace LibBaseDatosORM
                 errorMsge = "Error general: " + ex.ToString();
             }
             return res;
+        }
+
+        public DataTable Tables()
+        {
+            try
+            {
+                if (OpenConnection())
+                {
+                    dt = new DataTable();
+                    da = new MySqlDataAdapter("SHOW TABLES", cn);
+                    da.Fill(dt);
+                }
+            }
+            catch (MySqlException mysqlex)
+            {
+                errorMsge = "Error de MySQL al cargar las tablas: " + mysqlex.ToString();
+            }
+            catch (Exception ex)
+            {
+                errorMsge = "Error general al cargar las tablas: " + ex.ToString();
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return dt;
+        }
+
+        public DataTable TableStructure(String table)
+        {
+            try
+            {
+                if (OpenConnection())
+                {
+                    dt = new DataTable();
+                    da = new MySqlDataAdapter("DESCRIBE " + table, cn);
+                    da.Fill(dt);
+                }
+            }
+            catch (MySqlException mysqlex)
+            {
+                errorMsge = "Error de MySQL al cargar la estructura: " + mysqlex.ToString();
+            }
+            catch (Exception ex)
+            {
+                errorMsge = "Error general al cargar la estructura: " + ex.ToString();
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return dt;
         }
     }
 }

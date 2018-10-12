@@ -32,6 +32,9 @@
             this.pbxCerrar = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlContenido = new System.Windows.Forms.Panel();
+            this.dgvDatos2 = new System.Windows.Forms.DataGridView();
+            this.gbxDatos = new System.Windows.Forms.GroupBox();
+            this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.txtDatabase = new System.Windows.Forms.TextBox();
             this.lblDatabase = new System.Windows.Forms.Label();
@@ -43,11 +46,12 @@
             this.lblUser = new System.Windows.Forms.Label();
             this.lblServer = new System.Windows.Forms.Label();
             this.cbxServer = new System.Windows.Forms.ComboBox();
-            this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.txtQuery = new System.Windows.Forms.TextBox();
+            this.txtConnectionString = new System.Windows.Forms.TextBox();
             this.pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCerrar)).BeginInit();
             this.pnlContenido.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos2)).BeginInit();
+            this.gbxDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +71,7 @@
             this.pbxCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbxCerrar.BackgroundImage = global::ORM.Properties.Resources.Cerrar;
             this.pbxCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbxCerrar.Location = new System.Drawing.Point(817, 0);
+            this.pbxCerrar.Location = new System.Drawing.Point(819, 0);
             this.pbxCerrar.Name = "pbxCerrar";
             this.pbxCerrar.Size = new System.Drawing.Size(37, 29);
             this.pbxCerrar.TabIndex = 1;
@@ -88,7 +92,8 @@
             // 
             // pnlContenido
             // 
-            this.pnlContenido.Controls.Add(this.txtQuery);
+            this.pnlContenido.Controls.Add(this.dgvDatos2);
+            this.pnlContenido.Controls.Add(this.gbxDatos);
             this.pnlContenido.Controls.Add(this.dgvDatos);
             this.pnlContenido.Controls.Add(this.btnEntrar);
             this.pnlContenido.Controls.Add(this.txtDatabase);
@@ -106,6 +111,47 @@
             this.pnlContenido.Name = "pnlContenido";
             this.pnlContenido.Size = new System.Drawing.Size(854, 565);
             this.pnlContenido.TabIndex = 1;
+            // 
+            // dgvDatos2
+            // 
+            this.dgvDatos2.AllowUserToAddRows = false;
+            this.dgvDatos2.AllowUserToDeleteRows = false;
+            this.dgvDatos2.AllowUserToResizeColumns = false;
+            this.dgvDatos2.AllowUserToResizeRows = false;
+            this.dgvDatos2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatos2.Location = new System.Drawing.Point(402, 316);
+            this.dgvDatos2.Name = "dgvDatos2";
+            this.dgvDatos2.ReadOnly = true;
+            this.dgvDatos2.RowHeadersVisible = false;
+            this.dgvDatos2.Size = new System.Drawing.Size(452, 249);
+            this.dgvDatos2.TabIndex = 14;
+            // 
+            // gbxDatos
+            // 
+            this.gbxDatos.BackColor = System.Drawing.Color.Transparent;
+            this.gbxDatos.Controls.Add(this.txtConnectionString);
+            this.gbxDatos.Location = new System.Drawing.Point(383, 6);
+            this.gbxDatos.Name = "gbxDatos";
+            this.gbxDatos.Size = new System.Drawing.Size(448, 287);
+            this.gbxDatos.TabIndex = 13;
+            this.gbxDatos.TabStop = false;
+            // 
+            // dgvDatos
+            // 
+            this.dgvDatos.AllowUserToAddRows = false;
+            this.dgvDatos.AllowUserToDeleteRows = false;
+            this.dgvDatos.AllowUserToResizeColumns = false;
+            this.dgvDatos.AllowUserToResizeRows = false;
+            this.dgvDatos.BackgroundColor = System.Drawing.Color.White;
+            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatos.GridColor = System.Drawing.Color.Black;
+            this.dgvDatos.Location = new System.Drawing.Point(0, 316);
+            this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.ReadOnly = true;
+            this.dgvDatos.RowHeadersVisible = false;
+            this.dgvDatos.Size = new System.Drawing.Size(390, 249);
+            this.dgvDatos.TabIndex = 11;
+            this.dgvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellClick);
             // 
             // btnEntrar
             // 
@@ -145,6 +191,7 @@
             this.txtPwd.Name = "txtPwd";
             this.txtPwd.Size = new System.Drawing.Size(159, 27);
             this.txtPwd.TabIndex = 7;
+            this.txtPwd.UseSystemPasswordChar = true;
             // 
             // lblPwd
             // 
@@ -202,39 +249,28 @@
             // 
             // cbxServer
             // 
+            this.cbxServer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxServer.FormattingEnabled = true;
+            this.cbxServer.Items.AddRange(new object[] {
+            "MySQL",
+            "SQL SERVER",
+            "MARIA DB"});
             this.cbxServer.Location = new System.Drawing.Point(147, 25);
             this.cbxServer.Name = "cbxServer";
             this.cbxServer.Size = new System.Drawing.Size(159, 29);
             this.cbxServer.TabIndex = 0;
+            this.cbxServer.SelectedIndexChanged += new System.EventHandler(this.cbxServer_SelectedIndexChanged);
             // 
-            // dgvDatos
+            // txtConnectionString
             // 
-            this.dgvDatos.AllowUserToAddRows = false;
-            this.dgvDatos.AllowUserToDeleteRows = false;
-            this.dgvDatos.AllowUserToResizeColumns = false;
-            this.dgvDatos.AllowUserToResizeRows = false;
-            this.dgvDatos.BackgroundColor = System.Drawing.Color.White;
-            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvDatos.GridColor = System.Drawing.Color.Black;
-            this.dgvDatos.Location = new System.Drawing.Point(0, 316);
-            this.dgvDatos.Name = "dgvDatos";
-            this.dgvDatos.ReadOnly = true;
-            this.dgvDatos.RowHeadersVisible = false;
-            this.dgvDatos.Size = new System.Drawing.Size(854, 249);
-            this.dgvDatos.TabIndex = 11;
-            // 
-            // txtQuery
-            // 
-            this.txtQuery.BackColor = System.Drawing.Color.Black;
-            this.txtQuery.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuery.ForeColor = System.Drawing.Color.White;
-            this.txtQuery.Location = new System.Drawing.Point(344, 25);
-            this.txtQuery.Multiline = true;
-            this.txtQuery.Name = "txtQuery";
-            this.txtQuery.Size = new System.Drawing.Size(498, 266);
-            this.txtQuery.TabIndex = 12;
+            this.txtConnectionString.Enabled = false;
+            this.txtConnectionString.Location = new System.Drawing.Point(6, 19);
+            this.txtConnectionString.Multiline = true;
+            this.txtConnectionString.Name = "txtConnectionString";
+            this.txtConnectionString.ReadOnly = true;
+            this.txtConnectionString.Size = new System.Drawing.Size(436, 55);
+            this.txtConnectionString.TabIndex = 0;
+            this.txtConnectionString.Visible = false;
             // 
             // frmLogin
             // 
@@ -256,6 +292,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxCerrar)).EndInit();
             this.pnlContenido.ResumeLayout(false);
             this.pnlContenido.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos2)).EndInit();
+            this.gbxDatos.ResumeLayout(false);
+            this.gbxDatos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.ResumeLayout(false);
 
@@ -279,7 +318,9 @@
         private System.Windows.Forms.Label lblDatabase;
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.DataGridView dgvDatos;
-        private System.Windows.Forms.TextBox txtQuery;
+        private System.Windows.Forms.GroupBox gbxDatos;
+        private System.Windows.Forms.DataGridView dgvDatos2;
+        private System.Windows.Forms.TextBox txtConnectionString;
     }
 }
 
