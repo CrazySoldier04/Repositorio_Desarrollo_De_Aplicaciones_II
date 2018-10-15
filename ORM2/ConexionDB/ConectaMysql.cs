@@ -20,18 +20,18 @@ namespace ConexionDB
         public static string valor;
         public string conexion;
 
-        ///Metodo par aconectar a DB de MySQL. 
+        ///Metodo para conectar a DB de MySQL. 
         public bool ConectaDB(string conexion)
         {
             bool res = false;
             try
             {
-                if (con.State == ConnectionState.Closed)
-                {
+                //if (con.State == ConnectionState.Closed)
+                //{
                     con = new MySqlConnection(conexion);  //"Server=localhost;Database=sopTec;Uid=root;Pwd=Qwer1234");
                     con.Open();
                     res = true;
-                }
+                //}
             }
             catch (MySqlException mse)
             {

@@ -92,5 +92,8 @@
   <ItemGroup>
     <None Include="Resources\Windows_Close_Program_22531.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_data_20916.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

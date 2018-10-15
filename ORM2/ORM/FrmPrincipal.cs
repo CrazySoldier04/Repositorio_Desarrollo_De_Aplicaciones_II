@@ -192,7 +192,7 @@ namespace ORM
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void cbTipoDato_SelectedIndexChanged(object sender, EventArgs e)

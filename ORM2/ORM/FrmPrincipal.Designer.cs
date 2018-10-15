@@ -52,11 +52,13 @@
             this.pnlContenido = new System.Windows.Forms.Panel();
             this.txtConnectionString = new System.Windows.Forms.TextBox();
             this.pnlTitulo = new System.Windows.Forms.Panel();
-            this.pbxCerrar = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.pbxIcono = new System.Windows.Forms.PictureBox();
+            this.pbxCerrar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBases)).BeginInit();
             this.pnlContenido.SuspendLayout();
             this.pnlTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCerrar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,13 +86,13 @@
             this.dgvBases.BackgroundColor = System.Drawing.Color.White;
             this.dgvBases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBases.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvBases.GridColor = System.Drawing.Color.Black;
-            this.dgvBases.Location = new System.Drawing.Point(0, 342);
+            this.dgvBases.GridColor = System.Drawing.Color.Maroon;
+            this.dgvBases.Location = new System.Drawing.Point(0, 332);
             this.dgvBases.Margin = new System.Windows.Forms.Padding(4);
             this.dgvBases.Name = "dgvBases";
             this.dgvBases.ReadOnly = true;
             this.dgvBases.RowHeadersVisible = false;
-            this.dgvBases.Size = new System.Drawing.Size(776, 201);
+            this.dgvBases.Size = new System.Drawing.Size(774, 209);
             this.dgvBases.TabIndex = 2;
             // 
             // lblDatabase
@@ -314,6 +316,7 @@
             // 
             // pnlContenido
             // 
+            this.pnlContenido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlContenido.Controls.Add(this.txtConnectionString);
             this.pnlContenido.Controls.Add(this.lblDatabase);
             this.pnlContenido.Controls.Add(this.btnSalir);
@@ -346,16 +349,18 @@
             // 
             this.txtConnectionString.Enabled = false;
             this.txtConnectionString.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConnectionString.Location = new System.Drawing.Point(425, 64);
+            this.txtConnectionString.ForeColor = System.Drawing.Color.Black;
+            this.txtConnectionString.Location = new System.Drawing.Point(385, 64);
             this.txtConnectionString.Multiline = true;
             this.txtConnectionString.Name = "txtConnectionString";
             this.txtConnectionString.ReadOnly = true;
-            this.txtConnectionString.Size = new System.Drawing.Size(339, 45);
+            this.txtConnectionString.Size = new System.Drawing.Size(379, 45);
             this.txtConnectionString.TabIndex = 25;
             // 
             // pnlTitulo
             // 
             this.pnlTitulo.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.pnlTitulo.Controls.Add(this.pbxIcono);
             this.pnlTitulo.Controls.Add(this.pbxCerrar);
             this.pnlTitulo.Controls.Add(this.lblTitulo);
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -363,6 +368,28 @@
             this.pnlTitulo.Name = "pnlTitulo";
             this.pnlTitulo.Size = new System.Drawing.Size(776, 33);
             this.pnlTitulo.TabIndex = 26;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(41, 7);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(45, 19);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "ORM";
+            // 
+            // pbxIcono
+            // 
+            this.pbxIcono.BackColor = System.Drawing.Color.Transparent;
+            this.pbxIcono.BackgroundImage = global::ORM.Properties.Resources.database_data_20916;
+            this.pbxIcono.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbxIcono.Location = new System.Drawing.Point(0, 0);
+            this.pbxIcono.Name = "pbxIcono";
+            this.pbxIcono.Size = new System.Drawing.Size(34, 33);
+            this.pbxIcono.TabIndex = 2;
+            this.pbxIcono.TabStop = false;
             // 
             // pbxCerrar
             // 
@@ -376,17 +403,6 @@
             this.pbxCerrar.TabIndex = 1;
             this.pbxCerrar.TabStop = false;
             this.pbxCerrar.Click += new System.EventHandler(this.pbxCerrar_Click);
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(3, 7);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(45, 19);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "ORM";
             // 
             // FrmPrincipal
             // 
@@ -408,6 +424,7 @@
             this.pnlContenido.PerformLayout();
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxIcono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCerrar)).EndInit();
             this.ResumeLayout(false);
 
@@ -441,6 +458,7 @@
         private System.Windows.Forms.PictureBox pbxCerrar;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txtConnectionString;
+        private System.Windows.Forms.PictureBox pbxIcono;
     }
 }
 

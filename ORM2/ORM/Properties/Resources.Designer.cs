@@ -63,6 +63,16 @@ namespace ORM.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap database_data_20916 {
+            get {
+                object obj = ResourceManager.GetObject("database_data_20916", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Windows_Close_Program_22531 {
             get {
                 object obj = ResourceManager.GetObject("Windows_Close_Program_22531", resourceCulture);
