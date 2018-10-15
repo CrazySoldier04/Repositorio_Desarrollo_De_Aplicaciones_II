@@ -72,7 +72,7 @@ namespace ORM
             }
             else
             {
-                MessageBox.Show("Seleccione un Motor de Base de Datos");
+                MessageBox.Show("Favor de seleccionar un servidor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -81,7 +81,7 @@ namespace ORM
             cadena = "server=" + txtHost.Text + ";port=" + txtPuerto.Text + ";user=" + txtUsuario.Text + ";password=" + txtPass.Text;
             if (My.Conexion(cadena))
             {
-                MessageBox.Show("Conexion Exitosa");
+                MessageBox.Show("Conectado", "Conectado", MessageBoxButtons.OK, MessageBoxIcon.None, MessageBoxDefaultButton.Button1);
                 bases = My.ConsultaDT(cadena, "SELECT SCHEMA_NAME FROM information_schema.SCHEMATA");
                 txtConnectionString.Text = cadena;
                 cbBases.DataSource = bases;
@@ -92,7 +92,7 @@ namespace ORM
             }
             else
             {
-                MessageBox.Show("Error de Conexion");
+                MessageBox.Show("Error al realizar la conexión", "Error al conectarse", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -118,54 +118,61 @@ namespace ORM
 
         private void MostrarDatos()
         {
-            if (cbTipoDato.SelectedIndex == 0)//Muestra la estructura de la bd (Tablas)
+            try
             {
-                cbTablas.Enabled = false;
-                tablas = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; SELECT * FROM information_schema.TABLES WHERE INFORMATION_SCHEMA.TABLES.TABLE_SCHEMA LIKE '" + db + "';");
-                dgvBases.AutoGenerateColumns = true;
-                dgvBases.DataSource = tablas;
+                if (cbTipoDato.SelectedIndex == 0)//Muestra la estructura de la bd (Tablas)
+                {
+                    cbTablas.Enabled = false;
+                    tablas = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; SELECT * FROM information_schema.TABLES WHERE INFORMATION_SCHEMA.TABLES.TABLE_SCHEMA LIKE '" + db + "';");
+                    dgvBases.AutoGenerateColumns = true;
+                    dgvBases.DataSource = tablas;
+                }
+                else if (cbTipoDato.SelectedIndex == 1)// Muestra La estructura de las tablas.
+                {
+                    cbTablas.Enabled = true;
+                    campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; select * from information_schema.columns where columns.table_NAME = '" + tb + "' AND TABLE_SCHEMA = '" + db + "';");
+                    dgvBases.AutoGenerateColumns = true;
+                    dgvBases.DataSource = campos;
+                }
+                else if (cbTipoDato.SelectedIndex == 2)//Muestra los indices
+                {
+                    cbTablas.Enabled = false;
+                    campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; SELECT * FROM information_schema.statistics WHERE table_schema = '" + db + "';");
+                    dgvBases.AutoGenerateColumns = true;
+                    dgvBases.DataSource = campos;
+                }
+                else if (cbTipoDato.SelectedIndex == 3)//Mustra las relaciones o constrains
+                {
+                    cbTablas.Enabled = false;
+                    campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; select * from information_schema.table_constraints where constraint_schema = '" + db + "';");
+                    dgvBases.AutoGenerateColumns = true;
+                    dgvBases.DataSource = campos;
+                }
+                else if (cbTipoDato.SelectedIndex == 4)//Mustra los Store Procedures
+                {
+                    cbTablas.Enabled = false;
+                    campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; SELECT * FROM INFORMATION_SCHEMA.ROUTINES where routine_schema  = '" + db + "';");
+                    dgvBases.AutoGenerateColumns = true;
+                    dgvBases.DataSource = campos;
+                }
+                else if (cbTipoDato.SelectedIndex == 5)//Muestra las vistas
+                {
+                    cbTablas.Enabled = false;
+                    campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; SELECT *  FROM information_schema.tables WHERE TABLE_TYPE LIKE 'VIEW' AND TABLE_SCHEMA LIKE '" + db + "';");
+                    dgvBases.AutoGenerateColumns = true;
+                    dgvBases.DataSource = campos;
+                }
+                else if (cbTipoDato.SelectedIndex == 6) //Muestra los triggers
+                {
+                    cbTablas.Enabled = false;
+                    campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; select * from information_schema.triggers where information_schema.triggers.trigger_schema like '" + db + "';");
+                    dgvBases.AutoGenerateColumns = true;
+                    dgvBases.DataSource = campos;
+                }
             }
-            else if (cbTipoDato.SelectedIndex == 1)// Muestra La estructura de las tablas.
+            catch (Exception ex)
             {
-                cbTablas.Enabled = true;
-                campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; select * from information_schema.columns where columns.table_NAME = '" + tb + "' AND TABLE_SCHEMA = '"+ db +"';");
-                dgvBases.AutoGenerateColumns = true;
-                dgvBases.DataSource = campos;
-            }
-            else if (cbTipoDato.SelectedIndex == 2)//Muestra los indices
-            {
-                cbTablas.Enabled = false;
-                campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; SELECT * FROM information_schema.statistics WHERE table_schema = '" + db + "';");
-                dgvBases.AutoGenerateColumns = true;
-                dgvBases.DataSource = campos;
-            }
-            else if (cbTipoDato.SelectedIndex == 3)//Mustra las relaciones o constrains
-            {
-                cbTablas.Enabled = false;
-                campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; select * from information_schema.table_constraints where constraint_schema = '" + db + "';");
-                dgvBases.AutoGenerateColumns = true;
-                dgvBases.DataSource = campos;
-            }
-            else if (cbTipoDato.SelectedIndex == 4)//Mustra los Store Procedures
-            {
-                cbTablas.Enabled = false;
-                campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; SELECT * FROM INFORMATION_SCHEMA.ROUTINES where routine_schema  = '" + db + "';");
-                dgvBases.AutoGenerateColumns = true;
-                dgvBases.DataSource = campos;
-            }
-            else if (cbTipoDato.SelectedIndex == 5)//Muestra las vistas
-            {
-                cbTablas.Enabled = false;
-                campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; SELECT *  FROM information_schema.tables WHERE TABLE_TYPE LIKE 'VIEW' AND TABLE_SCHEMA LIKE '" + db + "';");
-                dgvBases.AutoGenerateColumns = true;
-                dgvBases.DataSource = campos;
-            }
-            else if (cbTipoDato.SelectedIndex == 6) //Muestra los triggers
-            {
-                cbTablas.Enabled = false;
-                campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; select * from information_schema.triggers where information_schema.triggers.trigger_schema like '" + db + "';");
-                dgvBases.AutoGenerateColumns = true;
-                dgvBases.DataSource = campos;
+                MessageBox.Show("Error general: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
 

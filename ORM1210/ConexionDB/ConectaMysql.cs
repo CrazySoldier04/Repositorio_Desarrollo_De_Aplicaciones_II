@@ -26,9 +26,12 @@ namespace ConexionDB
             bool res = false;
             try
             {
-                con = new MySqlConnection(conexion);  //"Server=localhost;Database=sopTec;Uid=root;Pwd=Qwer1234");
-                con.Open();
-                res = true;
+                if (con.State == ConnectionState.Closed)
+                {
+                    con = new MySqlConnection(conexion);  //"Server=localhost;Database=sopTec;Uid=root;Pwd=Qwer1234");
+                    con.Open();
+                    res = true;
+                }
             }
             catch (MySqlException mse)
             {
@@ -286,9 +289,7 @@ namespace ConexionDB
                 DesconectaDB();
             }
             return res;
-        }
-
-        
+        }   
     }
 }
 

@@ -79,13 +79,17 @@
             // 
             this.dgvBases.AllowUserToAddRows = false;
             this.dgvBases.AllowUserToDeleteRows = false;
+            this.dgvBases.AllowUserToResizeRows = false;
             this.dgvBases.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvBases.BackgroundColor = System.Drawing.Color.White;
             this.dgvBases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBases.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvBases.GridColor = System.Drawing.Color.Black;
             this.dgvBases.Location = new System.Drawing.Point(0, 342);
             this.dgvBases.Margin = new System.Windows.Forms.Padding(4);
             this.dgvBases.Name = "dgvBases";
             this.dgvBases.ReadOnly = true;
+            this.dgvBases.RowHeadersVisible = false;
             this.dgvBases.Size = new System.Drawing.Size(776, 201);
             this.dgvBases.TabIndex = 2;
             // 
@@ -178,7 +182,7 @@
             // 
             this.cbBases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBases.FormattingEnabled = true;
-            this.cbBases.Location = new System.Drawing.Point(549, 112);
+            this.cbBases.Location = new System.Drawing.Point(549, 134);
             this.cbBases.Margin = new System.Windows.Forms.Padding(4);
             this.cbBases.Name = "cbBases";
             this.cbBases.Size = new System.Drawing.Size(199, 25);
@@ -189,7 +193,7 @@
             // 
             this.lblBaseDeDatos.AutoSize = true;
             this.lblBaseDeDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBaseDeDatos.Location = new System.Drawing.Point(422, 115);
+            this.lblBaseDeDatos.Location = new System.Drawing.Point(422, 137);
             this.lblBaseDeDatos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBaseDeDatos.Name = "lblBaseDeDatos";
             this.lblBaseDeDatos.Size = new System.Drawing.Size(119, 16);
@@ -260,7 +264,7 @@
             // 
             this.cbTablas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTablas.FormattingEnabled = true;
-            this.cbTablas.Location = new System.Drawing.Point(549, 216);
+            this.cbTablas.Location = new System.Drawing.Point(549, 238);
             this.cbTablas.Margin = new System.Windows.Forms.Padding(4);
             this.cbTablas.Name = "cbTablas";
             this.cbTablas.Size = new System.Drawing.Size(199, 25);
@@ -271,7 +275,7 @@
             // 
             this.lblTabla.AutoSize = true;
             this.lblTabla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTabla.Location = new System.Drawing.Point(452, 216);
+            this.lblTabla.Location = new System.Drawing.Point(452, 238);
             this.lblTabla.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTabla.Name = "lblTabla";
             this.lblTabla.Size = new System.Drawing.Size(57, 16);
@@ -282,7 +286,7 @@
             // 
             this.lblDatos.AutoSize = true;
             this.lblDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatos.Location = new System.Drawing.Point(422, 165);
+            this.lblDatos.Location = new System.Drawing.Point(422, 187);
             this.lblDatos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDatos.Name = "lblDatos";
             this.lblDatos.Size = new System.Drawing.Size(107, 16);
@@ -301,7 +305,7 @@
             "Store Procedures",
             "Views",
             "Triggers"});
-            this.cbTipoDato.Location = new System.Drawing.Point(549, 162);
+            this.cbTipoDato.Location = new System.Drawing.Point(549, 184);
             this.cbTipoDato.Margin = new System.Windows.Forms.Padding(4);
             this.cbTipoDato.Name = "cbTipoDato";
             this.cbTipoDato.Size = new System.Drawing.Size(199, 25);
@@ -341,6 +345,7 @@
             // txtConnectionString
             // 
             this.txtConnectionString.Enabled = false;
+            this.txtConnectionString.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConnectionString.Location = new System.Drawing.Point(425, 64);
             this.txtConnectionString.Multiline = true;
             this.txtConnectionString.Name = "txtConnectionString";
