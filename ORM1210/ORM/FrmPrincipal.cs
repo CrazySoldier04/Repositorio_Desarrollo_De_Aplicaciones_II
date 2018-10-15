@@ -60,7 +60,7 @@ namespace ORM
             }
             else if (cbMotor.SelectedIndex == 1)
             {
-                MsSQL();
+                SqlServer();
             }
             else if (cbMotor.SelectedIndex == 2)
             {
@@ -68,7 +68,7 @@ namespace ORM
             }
             else if (cbMotor.SelectedIndex == 3)
             {
-                FoxPro();
+                MariaDB();
             }
             else
             {
@@ -83,7 +83,7 @@ namespace ORM
             {
                 MessageBox.Show("Conexion Exitosa");
                 bases = My.ConsultaDT(cadena, "SELECT SCHEMA_NAME FROM information_schema.SCHEMATA");
-                lbString.Text = cadena;
+                txtConnectionString.Text = cadena;
                 cbBases.DataSource = bases;
                 cbBases.DisplayMember = "SCHEMA_NAME";
                 cbBases.ValueMember = "SCHEMA_NAME";
@@ -96,19 +96,19 @@ namespace ORM
             }
         }
 
-        private void MsSQL()
+        private void SqlServer()
         {
-            MessageBox.Show("Esta Opción Aun No Está Desarrollada.","Información",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Ups", "Ups", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
         private void PostgreSQL()
         {
-            MessageBox.Show("Esta Opción Aun No Está Desarrollada.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Ups", "Ups", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
-        private void FoxPro()
+        private void MariaDB()
         {
-            MessageBox.Show("Esta Opción Aun No Está Desarrollada.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Ups", "Ups", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
         private void btnTest_Click(object sender, EventArgs e)

@@ -41,7 +41,6 @@
             this.cbBases = new System.Windows.Forms.ComboBox();
             this.lblBaseDeDatos = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lbString = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
             this.lblPuerto = new System.Windows.Forms.Label();
@@ -52,8 +51,9 @@
             this.cbTipoDato = new System.Windows.Forms.ComboBox();
             this.pnlContenido = new System.Windows.Forms.Panel();
             this.pnlTitulo = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.pbxCerrar = new System.Windows.Forms.PictureBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.txtConnectionString = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBases)).BeginInit();
             this.pnlContenido.SuspendLayout();
             this.pnlTitulo.SuspendLayout();
@@ -67,7 +67,7 @@
             this.btnConectar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConectar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConectar.Location = new System.Drawing.Point(116, 286);
-            this.btnConectar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConectar.Margin = new System.Windows.Forms.Padding(4);
             this.btnConectar.Name = "btnConectar";
             this.btnConectar.Size = new System.Drawing.Size(205, 30);
             this.btnConectar.TabIndex = 0;
@@ -83,7 +83,7 @@
             this.dgvBases.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBases.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvBases.Location = new System.Drawing.Point(0, 342);
-            this.dgvBases.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvBases.Margin = new System.Windows.Forms.Padding(4);
             this.dgvBases.Name = "dgvBases";
             this.dgvBases.ReadOnly = true;
             this.dgvBases.Size = new System.Drawing.Size(776, 201);
@@ -103,7 +103,7 @@
             // txtHost
             // 
             this.txtHost.Location = new System.Drawing.Point(116, 90);
-            this.txtHost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHost.Margin = new System.Windows.Forms.Padding(4);
             this.txtHost.Name = "txtHost";
             this.txtHost.Size = new System.Drawing.Size(205, 23);
             this.txtHost.TabIndex = 4;
@@ -146,12 +146,12 @@
             this.cbMotor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMotor.FormattingEnabled = true;
             this.cbMotor.Items.AddRange(new object[] {
-            "MySQL",
-            "MSSQL",
-            "PostgreSQL",
-            "FoxPro"});
+            "MySql",
+            "SQL Server",
+            "PostgreSql",
+            "MariaDB"});
             this.cbMotor.Location = new System.Drawing.Point(116, 42);
-            this.cbMotor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbMotor.Margin = new System.Windows.Forms.Padding(4);
             this.cbMotor.Name = "cbMotor";
             this.cbMotor.Size = new System.Drawing.Size(205, 25);
             this.cbMotor.TabIndex = 8;
@@ -160,7 +160,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(116, 194);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(205, 23);
             this.txtUsuario.TabIndex = 9;
@@ -168,7 +168,7 @@
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(116, 245);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(4);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(205, 23);
@@ -179,7 +179,7 @@
             this.cbBases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBases.FormattingEnabled = true;
             this.cbBases.Location = new System.Drawing.Point(549, 112);
-            this.cbBases.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbBases.Margin = new System.Windows.Forms.Padding(4);
             this.cbBases.Name = "cbBases";
             this.cbBases.Size = new System.Drawing.Size(199, 25);
             this.cbBases.TabIndex = 11;
@@ -200,23 +200,12 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(478, 45);
+            this.label6.Location = new System.Drawing.Point(536, 45);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(127, 16);
             this.label6.TabIndex = 13;
             this.label6.Text = "Connection string";
-            // 
-            // lbString
-            // 
-            this.lbString.AutoSize = true;
-            this.lbString.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbString.Location = new System.Drawing.Point(478, 81);
-            this.lbString.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbString.Name = "lbString";
-            this.lbString.Size = new System.Drawing.Size(12, 16);
-            this.lbString.TabIndex = 14;
-            this.lbString.Text = ".";
             // 
             // btnSalir
             // 
@@ -225,7 +214,7 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Location = new System.Drawing.Point(572, 286);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(176, 30);
             this.btnSalir.TabIndex = 15;
@@ -240,7 +229,7 @@
             this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTest.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTest.Location = new System.Drawing.Point(385, 286);
-            this.btnTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTest.Margin = new System.Windows.Forms.Padding(4);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(179, 30);
             this.btnTest.TabIndex = 16;
@@ -262,7 +251,7 @@
             // txtPuerto
             // 
             this.txtPuerto.Location = new System.Drawing.Point(116, 136);
-            this.txtPuerto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPuerto.Margin = new System.Windows.Forms.Padding(4);
             this.txtPuerto.Name = "txtPuerto";
             this.txtPuerto.Size = new System.Drawing.Size(205, 23);
             this.txtPuerto.TabIndex = 18;
@@ -272,7 +261,7 @@
             this.cbTablas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTablas.FormattingEnabled = true;
             this.cbTablas.Location = new System.Drawing.Point(549, 216);
-            this.cbTablas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTablas.Margin = new System.Windows.Forms.Padding(4);
             this.cbTablas.Name = "cbTablas";
             this.cbTablas.Size = new System.Drawing.Size(199, 25);
             this.cbTablas.TabIndex = 21;
@@ -313,7 +302,7 @@
             "Views",
             "Triggers"});
             this.cbTipoDato.Location = new System.Drawing.Point(549, 162);
-            this.cbTipoDato.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbTipoDato.Margin = new System.Windows.Forms.Padding(4);
             this.cbTipoDato.Name = "cbTipoDato";
             this.cbTipoDato.Size = new System.Drawing.Size(199, 25);
             this.cbTipoDato.TabIndex = 24;
@@ -321,6 +310,7 @@
             // 
             // pnlContenido
             // 
+            this.pnlContenido.Controls.Add(this.txtConnectionString);
             this.pnlContenido.Controls.Add(this.lblDatabase);
             this.pnlContenido.Controls.Add(this.btnSalir);
             this.pnlContenido.Controls.Add(this.dgvBases);
@@ -337,7 +327,6 @@
             this.pnlContenido.Controls.Add(this.lblUsuario);
             this.pnlContenido.Controls.Add(this.cbBases);
             this.pnlContenido.Controls.Add(this.lblBaseDeDatos);
-            this.pnlContenido.Controls.Add(this.lbString);
             this.pnlContenido.Controls.Add(this.txtUsuario);
             this.pnlContenido.Controls.Add(this.label6);
             this.pnlContenido.Controls.Add(this.lblPwd);
@@ -360,17 +349,6 @@
             this.pnlTitulo.Size = new System.Drawing.Size(776, 33);
             this.pnlTitulo.TabIndex = 26;
             // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(3, 7);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(45, 19);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "ORM";
-            // 
             // pbxCerrar
             // 
             this.pbxCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -384,6 +362,27 @@
             this.pbxCerrar.TabStop = false;
             this.pbxCerrar.Click += new System.EventHandler(this.pbxCerrar_Click);
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(3, 7);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(45, 19);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "ORM";
+            // 
+            // txtConnectionString
+            // 
+            this.txtConnectionString.Enabled = false;
+            this.txtConnectionString.Location = new System.Drawing.Point(425, 64);
+            this.txtConnectionString.Multiline = true;
+            this.txtConnectionString.Name = "txtConnectionString";
+            this.txtConnectionString.ReadOnly = true;
+            this.txtConnectionString.Size = new System.Drawing.Size(339, 45);
+            this.txtConnectionString.TabIndex = 25;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -395,7 +394,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ORM";
@@ -424,7 +423,6 @@
         private System.Windows.Forms.ComboBox cbBases;
         private System.Windows.Forms.Label lblBaseDeDatos;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lbString;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Label lblPuerto;
@@ -437,6 +435,7 @@
         private System.Windows.Forms.Panel pnlTitulo;
         private System.Windows.Forms.PictureBox pbxCerrar;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.TextBox txtConnectionString;
     }
 }
 
