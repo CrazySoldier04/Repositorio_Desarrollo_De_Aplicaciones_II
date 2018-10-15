@@ -50,10 +50,10 @@
             this.lblDatos = new System.Windows.Forms.Label();
             this.cbTipoDato = new System.Windows.Forms.ComboBox();
             this.pnlContenido = new System.Windows.Forms.Panel();
+            this.txtConnectionString = new System.Windows.Forms.TextBox();
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.pbxCerrar = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.txtConnectionString = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBases)).BeginInit();
             this.pnlContenido.SuspendLayout();
             this.pnlTitulo.SuspendLayout();
@@ -96,9 +96,9 @@
             this.lblDatabase.Location = new System.Drawing.Point(24, 45);
             this.lblDatabase.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDatabase.Name = "lblDatabase";
-            this.lblDatabase.Size = new System.Drawing.Size(84, 16);
+            this.lblDatabase.Size = new System.Drawing.Size(62, 16);
             this.lblDatabase.TabIndex = 3;
-            this.lblDatabase.Text = "Database: ";
+            this.lblDatabase.Text = "Server: ";
             // 
             // txtHost
             // 
@@ -338,6 +338,16 @@
             this.pnlContenido.Size = new System.Drawing.Size(776, 543);
             this.pnlContenido.TabIndex = 25;
             // 
+            // txtConnectionString
+            // 
+            this.txtConnectionString.Enabled = false;
+            this.txtConnectionString.Location = new System.Drawing.Point(425, 64);
+            this.txtConnectionString.Multiline = true;
+            this.txtConnectionString.Name = "txtConnectionString";
+            this.txtConnectionString.ReadOnly = true;
+            this.txtConnectionString.Size = new System.Drawing.Size(339, 45);
+            this.txtConnectionString.TabIndex = 25;
+            // 
             // pnlTitulo
             // 
             this.pnlTitulo.BackColor = System.Drawing.SystemColors.HotTrack;
@@ -372,16 +382,6 @@
             this.lblTitulo.Size = new System.Drawing.Size(45, 19);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "ORM";
-            // 
-            // txtConnectionString
-            // 
-            this.txtConnectionString.Enabled = false;
-            this.txtConnectionString.Location = new System.Drawing.Point(425, 64);
-            this.txtConnectionString.Multiline = true;
-            this.txtConnectionString.Name = "txtConnectionString";
-            this.txtConnectionString.ReadOnly = true;
-            this.txtConnectionString.Size = new System.Drawing.Size(339, 45);
-            this.txtConnectionString.TabIndex = 25;
             // 
             // FrmPrincipal
             // 
