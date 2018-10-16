@@ -41,7 +41,6 @@
             this.cbBases = new System.Windows.Forms.ComboBox();
             this.lblBaseDeDatos = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
             this.lblPuerto = new System.Windows.Forms.Label();
             this.txtPuerto = new System.Windows.Forms.TextBox();
@@ -52,9 +51,9 @@
             this.pnlContenido = new System.Windows.Forms.Panel();
             this.txtConnectionString = new System.Windows.Forms.TextBox();
             this.pnlTitulo = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.pbxIcono = new System.Windows.Forms.PictureBox();
             this.pbxCerrar = new System.Windows.Forms.PictureBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBases)).BeginInit();
             this.pnlContenido.SuspendLayout();
             this.pnlTitulo.SuspendLayout();
@@ -213,28 +212,13 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Connection string";
             // 
-            // btnSalir
-            // 
-            this.btnSalir.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnSalir.FlatAppearance.BorderSize = 0;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(572, 286);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(176, 30);
-            this.btnSalir.TabIndex = 15;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
             // btnTest
             // 
             this.btnTest.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnTest.FlatAppearance.BorderSize = 0;
             this.btnTest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTest.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest.Location = new System.Drawing.Point(385, 286);
+            this.btnTest.Location = new System.Drawing.Point(484, 286);
             this.btnTest.Margin = new System.Windows.Forms.Padding(4);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(179, 30);
@@ -319,7 +303,6 @@
             this.pnlContenido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlContenido.Controls.Add(this.txtConnectionString);
             this.pnlContenido.Controls.Add(this.lblDatabase);
-            this.pnlContenido.Controls.Add(this.btnSalir);
             this.pnlContenido.Controls.Add(this.dgvBases);
             this.pnlContenido.Controls.Add(this.btnTest);
             this.pnlContenido.Controls.Add(this.cbTablas);
@@ -369,17 +352,6 @@
             this.pnlTitulo.Size = new System.Drawing.Size(776, 33);
             this.pnlTitulo.TabIndex = 26;
             // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(41, 7);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(45, 19);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "ORM";
-            // 
             // pbxIcono
             // 
             this.pbxIcono.BackColor = System.Drawing.Color.Transparent;
@@ -403,6 +375,17 @@
             this.pbxCerrar.TabIndex = 1;
             this.pbxCerrar.TabStop = false;
             this.pbxCerrar.Click += new System.EventHandler(this.pbxCerrar_Click);
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(41, 7);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(45, 19);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "ORM";
             // 
             // FrmPrincipal
             // 
@@ -445,7 +428,6 @@
         private System.Windows.Forms.ComboBox cbBases;
         private System.Windows.Forms.Label lblBaseDeDatos;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Label lblPuerto;
         private System.Windows.Forms.TextBox txtPuerto;
