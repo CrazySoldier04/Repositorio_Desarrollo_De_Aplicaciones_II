@@ -54,11 +54,21 @@
             this.pbxIcono = new System.Windows.Forms.PictureBox();
             this.pbxCerrar = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.pnlBusqueda = new System.Windows.Forms.Panel();
+            this.lblFiltrar = new System.Windows.Forms.Label();
+            this.lblTipo = new System.Windows.Forms.Label();
+            this.lblLongitud = new System.Windows.Forms.Label();
+            this.txtLongitud = new System.Windows.Forms.TextBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.cbxTipoDeDatos = new System.Windows.Forms.ComboBox();
+            this.dgvFiltrar = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBases)).BeginInit();
             this.pnlContenido.SuspendLayout();
             this.pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCerrar)).BeginInit();
+            this.pnlBusqueda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFiltrar)).BeginInit();
             this.SuspendLayout();
             // 
             // btnConectar
@@ -301,6 +311,7 @@
             // pnlContenido
             // 
             this.pnlContenido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlContenido.Controls.Add(this.pnlBusqueda);
             this.pnlContenido.Controls.Add(this.txtConnectionString);
             this.pnlContenido.Controls.Add(this.lblDatabase);
             this.pnlContenido.Controls.Add(this.dgvBases);
@@ -387,6 +398,99 @@
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "ORM";
             // 
+            // pnlBusqueda
+            // 
+            this.pnlBusqueda.Controls.Add(this.dgvFiltrar);
+            this.pnlBusqueda.Controls.Add(this.cbxTipoDeDatos);
+            this.pnlBusqueda.Controls.Add(this.btnFiltrar);
+            this.pnlBusqueda.Controls.Add(this.txtLongitud);
+            this.pnlBusqueda.Controls.Add(this.lblLongitud);
+            this.pnlBusqueda.Controls.Add(this.lblTipo);
+            this.pnlBusqueda.Controls.Add(this.lblFiltrar);
+            this.pnlBusqueda.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlBusqueda.Location = new System.Drawing.Point(0, 0);
+            this.pnlBusqueda.Name = "pnlBusqueda";
+            this.pnlBusqueda.Size = new System.Drawing.Size(379, 332);
+            this.pnlBusqueda.TabIndex = 26;
+            this.pnlBusqueda.Visible = false;
+            // 
+            // lblFiltrar
+            // 
+            this.lblFiltrar.AutoSize = true;
+            this.lblFiltrar.BackColor = System.Drawing.Color.Transparent;
+            this.lblFiltrar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltrar.Location = new System.Drawing.Point(131, 45);
+            this.lblFiltrar.Name = "lblFiltrar";
+            this.lblFiltrar.Size = new System.Drawing.Size(116, 16);
+            this.lblFiltrar.TabIndex = 0;
+            this.lblFiltrar.Text = "Filtrar resultados";
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.BackColor = System.Drawing.Color.Transparent;
+            this.lblTipo.Location = new System.Drawing.Point(9, 76);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(99, 17);
+            this.lblTipo.TabIndex = 1;
+            this.lblTipo.Text = "Tipo de dato: ";
+            // 
+            // lblLongitud
+            // 
+            this.lblLongitud.AutoSize = true;
+            this.lblLongitud.BackColor = System.Drawing.Color.Transparent;
+            this.lblLongitud.Location = new System.Drawing.Point(11, 129);
+            this.lblLongitud.Name = "lblLongitud";
+            this.lblLongitud.Size = new System.Drawing.Size(73, 17);
+            this.lblLongitud.TabIndex = 3;
+            this.lblLongitud.Text = "Longitud: ";
+            // 
+            // txtLongitud
+            // 
+            this.txtLongitud.Location = new System.Drawing.Point(114, 121);
+            this.txtLongitud.MaxLength = 10;
+            this.txtLongitud.Name = "txtLongitud";
+            this.txtLongitud.Size = new System.Drawing.Size(171, 23);
+            this.txtLongitud.TabIndex = 4;
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnFiltrar.FlatAppearance.BorderSize = 0;
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrar.Location = new System.Drawing.Point(114, 162);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(171, 25);
+            this.btnFiltrar.TabIndex = 5;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.UseVisualStyleBackColor = false;
+            // 
+            // cbxTipoDeDatos
+            // 
+            this.cbxTipoDeDatos.BackColor = System.Drawing.Color.White;
+            this.cbxTipoDeDatos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTipoDeDatos.ForeColor = System.Drawing.Color.Black;
+            this.cbxTipoDeDatos.FormattingEnabled = true;
+            this.cbxTipoDeDatos.Location = new System.Drawing.Point(114, 73);
+            this.cbxTipoDeDatos.Name = "cbxTipoDeDatos";
+            this.cbxTipoDeDatos.Size = new System.Drawing.Size(171, 25);
+            this.cbxTipoDeDatos.TabIndex = 6;
+            // 
+            // dgvFiltrar
+            // 
+            this.dgvFiltrar.AllowUserToAddRows = false;
+            this.dgvFiltrar.AllowUserToDeleteRows = false;
+            this.dgvFiltrar.AllowUserToResizeColumns = false;
+            this.dgvFiltrar.AllowUserToResizeRows = false;
+            this.dgvFiltrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFiltrar.Location = new System.Drawing.Point(63, 197);
+            this.dgvFiltrar.Name = "dgvFiltrar";
+            this.dgvFiltrar.ReadOnly = true;
+            this.dgvFiltrar.Size = new System.Drawing.Size(240, 119);
+            this.dgvFiltrar.TabIndex = 7;
+            this.dgvFiltrar.Visible = false;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -409,6 +513,9 @@
             this.pnlTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxCerrar)).EndInit();
+            this.pnlBusqueda.ResumeLayout(false);
+            this.pnlBusqueda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFiltrar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -441,6 +548,14 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txtConnectionString;
         private System.Windows.Forms.PictureBox pbxIcono;
+        private System.Windows.Forms.Panel pnlBusqueda;
+        private System.Windows.Forms.Label lblFiltrar;
+        private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.TextBox txtLongitud;
+        private System.Windows.Forms.Label lblLongitud;
+        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.ComboBox cbxTipoDeDatos;
+        private System.Windows.Forms.DataGridView dgvFiltrar;
     }
 }
 

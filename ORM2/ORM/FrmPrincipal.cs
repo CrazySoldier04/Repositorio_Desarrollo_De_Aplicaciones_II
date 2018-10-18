@@ -87,7 +87,7 @@ namespace ORM
                 cbBases.DataSource = bases;
                 cbBases.DisplayMember = "SCHEMA_NAME";
                 cbBases.ValueMember = "SCHEMA_NAME";
-
+                pnlBusqueda.Visible = true;
                 cbTablas.Enabled = false;
             }
             else
@@ -173,44 +173,77 @@ namespace ORM
 
         private void Colores()
         {
-            for (int i = 0; i < dgvBases.Rows.Count; i++)
+            try
             {
-                if(dgvBases.Rows[i].Cells[7].Value.ToString() == "varchar")
+                for (int i = 0; i < dgvBases.Rows.Count; i++)
                 {
-                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Red;
+                    if (dgvBases.Rows[i].Cells[7].Value.ToString() == "varchar")
+                    {
+                        dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Red;
+                    }
+                    else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "tinyint")
+                    {
+                        dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Salmon;
+                    }
+                    else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "int")
+                    {
+                        dgvBases.Rows[i].Cells[7].Style.BackColor = Color.SeaGreen;
+                    }
+                    else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "bigint")
+                    {
+                        dgvBases.Rows[i].Cells[7].Style.BackColor = Color.SkyBlue;
+                    }
+                    else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "datetime")
+                    {
+                        dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Tan;
+                    }
+                    else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "timestamp")
+                    {
+                        dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Tomato;
+                    }
+                    else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "double")
+                    {
+                        dgvBases.Rows[i].Cells[7].Style.BackColor = Color.YellowGreen;
+                    }
+                    else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "float")
+                    {
+                        dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Aquamarine;
+                    }
+                    else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "text")
+                    {
+                        dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Beige;
+                    }
                 }
-                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "tinyint")
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al identificar con colores: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+        }
+
+        private void TiposDeDatos()
+        {
+            try
+            {
+                List<string> lista = new List<string>();
+                campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; select * from information_schema.columns where columns.table_NAME = '" + tb + "' AND TABLE_SCHEMA = '" + db + "' GROUP BY columns.DATA_TYPE;");
+                dgvFiltrar.DataSource = campos;
+                for (int i = 0; i < dgvFiltrar.Rows.Count; i++)
+                {                                       
+                    if (dgvFiltrar.Columns[7].HeaderText == "DATA_TYPE")
+                    {
+                        lista.Add(dgvFiltrar.Rows[i].Cells[7].Value.ToString());
+                    }
+                }
+                foreach (string element in lista)
                 {
-                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Salmon;
+                    //cbxTipoDeDatos.Items.Add(lista);
+                    cbxTipoDeDatos.DataSource = lista;
                 }
-                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "int")
-                {
-                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.SeaGreen;
-                }
-                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "bigint")
-                {
-                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.SkyBlue;
-                }
-                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "datetime")
-                {
-                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Tan;
-                }
-                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "timestamp")
-                {
-                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Tomato;
-                }
-                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "double")
-                {
-                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.YellowGreen;
-                }
-                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "float")
-                {
-                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Aquamarine;
-                }
-                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "text")
-                {
-                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Beige;
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al generar los datos: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -218,6 +251,7 @@ namespace ORM
         {
             CargaDatos();
             Colores();
+            TiposDeDatos();
         }
 
         private void cbTablas_SelectedIndexChanged(object sender, EventArgs e)
