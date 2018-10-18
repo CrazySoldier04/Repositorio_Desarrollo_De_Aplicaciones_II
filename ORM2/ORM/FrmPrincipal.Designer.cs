@@ -183,7 +183,7 @@
             // 
             this.cbBases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBases.FormattingEnabled = true;
-            this.cbBases.Location = new System.Drawing.Point(549, 134);
+            this.cbBases.Location = new System.Drawing.Point(549, 121);
             this.cbBases.Margin = new System.Windows.Forms.Padding(4);
             this.cbBases.Name = "cbBases";
             this.cbBases.Size = new System.Drawing.Size(199, 25);
@@ -194,7 +194,7 @@
             // 
             this.lblBaseDeDatos.AutoSize = true;
             this.lblBaseDeDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBaseDeDatos.Location = new System.Drawing.Point(422, 137);
+            this.lblBaseDeDatos.Location = new System.Drawing.Point(422, 124);
             this.lblBaseDeDatos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBaseDeDatos.Name = "lblBaseDeDatos";
             this.lblBaseDeDatos.Size = new System.Drawing.Size(119, 16);
@@ -250,7 +250,7 @@
             // 
             this.cbTablas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTablas.FormattingEnabled = true;
-            this.cbTablas.Location = new System.Drawing.Point(549, 238);
+            this.cbTablas.Location = new System.Drawing.Point(549, 225);
             this.cbTablas.Margin = new System.Windows.Forms.Padding(4);
             this.cbTablas.Name = "cbTablas";
             this.cbTablas.Size = new System.Drawing.Size(199, 25);
@@ -261,7 +261,7 @@
             // 
             this.lblTabla.AutoSize = true;
             this.lblTabla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTabla.Location = new System.Drawing.Point(452, 238);
+            this.lblTabla.Location = new System.Drawing.Point(452, 225);
             this.lblTabla.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTabla.Name = "lblTabla";
             this.lblTabla.Size = new System.Drawing.Size(57, 16);
@@ -272,7 +272,7 @@
             // 
             this.lblDatos.AutoSize = true;
             this.lblDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatos.Location = new System.Drawing.Point(422, 187);
+            this.lblDatos.Location = new System.Drawing.Point(422, 174);
             this.lblDatos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDatos.Name = "lblDatos";
             this.lblDatos.Size = new System.Drawing.Size(107, 16);
@@ -291,7 +291,7 @@
             "Store Procedures",
             "Views",
             "Triggers"});
-            this.cbTipoDato.Location = new System.Drawing.Point(549, 184);
+            this.cbTipoDato.Location = new System.Drawing.Point(549, 171);
             this.cbTipoDato.Margin = new System.Windows.Forms.Padding(4);
             this.cbTipoDato.Name = "cbTipoDato";
             this.cbTipoDato.Size = new System.Drawing.Size(199, 25);
@@ -337,7 +337,7 @@
             this.txtConnectionString.Multiline = true;
             this.txtConnectionString.Name = "txtConnectionString";
             this.txtConnectionString.ReadOnly = true;
-            this.txtConnectionString.Size = new System.Drawing.Size(379, 45);
+            this.txtConnectionString.Size = new System.Drawing.Size(379, 33);
             this.txtConnectionString.TabIndex = 25;
             // 
             // pnlTitulo
@@ -381,7 +381,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(41, 7);
+            this.lblTitulo.Location = new System.Drawing.Point(38, 7);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(45, 19);
             this.lblTitulo.TabIndex = 0;
