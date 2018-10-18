@@ -400,6 +400,7 @@
             // 
             // pnlBusqueda
             // 
+            this.pnlBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlBusqueda.Controls.Add(this.dgvFiltrar);
             this.pnlBusqueda.Controls.Add(this.cbxTipoDeDatos);
             this.pnlBusqueda.Controls.Add(this.btnFiltrar);
@@ -452,6 +453,7 @@
             this.txtLongitud.Name = "txtLongitud";
             this.txtLongitud.Size = new System.Drawing.Size(171, 23);
             this.txtLongitud.TabIndex = 4;
+            this.txtLongitud.TextChanged += new System.EventHandler(this.txtLongitud_TextChanged);
             // 
             // btnFiltrar
             // 
@@ -465,6 +467,7 @@
             this.btnFiltrar.TabIndex = 5;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = false;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // cbxTipoDeDatos
             // 
@@ -476,6 +479,7 @@
             this.cbxTipoDeDatos.Name = "cbxTipoDeDatos";
             this.cbxTipoDeDatos.Size = new System.Drawing.Size(171, 25);
             this.cbxTipoDeDatos.TabIndex = 6;
+            this.cbxTipoDeDatos.SelectedIndexChanged += new System.EventHandler(this.cbxTipoDeDatos_SelectedIndexChanged);
             // 
             // dgvFiltrar
             // 

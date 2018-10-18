@@ -235,15 +235,32 @@ namespace ORM
                         lista.Add(dgvFiltrar.Rows[i].Cells[7].Value.ToString());
                     }
                 }
-                foreach (string element in lista)
-                {
-                    //cbxTipoDeDatos.Items.Add(lista);
-                    cbxTipoDeDatos.DataSource = lista;
-                }
+                cbxTipoDeDatos.DataSource = lista;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al generar los datos: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            }
+        }
+
+        private void FiltrarResultados()
+        {
+            try
+            {
+                if (txtLongitud.Text == "")
+                {
+                    campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; select * from information_schema.columns where columns.table_NAME = '" + tb + "' AND TABLE_SCHEMA = '" + db + "' AND columns.DATA_TYPE='" + cbxTipoDeDatos.Text + "';");
+                    dgvBases.DataSource = campos;
+                }
+                else
+                {
+                    campos = My.ConsultaDT(cadena, "USE INFORMATION_SCHEMA; select * from information_schema.columns where columns.table_NAME = '" + tb + "' AND TABLE_SCHEMA = '" + db + "' AND columns.DATA_TYPE='" + cbxTipoDeDatos.Text + "' AND columns.NUMERIC_PRECISION='" + txtLongitud.Text + "';");
+                    dgvBases.DataSource = campos;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al filtrar resultados: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -288,6 +305,26 @@ namespace ORM
         private void pbxCerrar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            FiltrarResultados();
+            Colores();
+        }
+
+        private void txtLongitud_TextChanged(object sender, EventArgs e)
+        {
+            if(!RegularExpressions.NumerosEnteros(txtLongitud.Text))
+                {
+                txtLongitud.Clear();
+                txtLongitud.Focus();
+            }
+        }
+
+        private void cbxTipoDeDatos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtLongitud.Clear();
         }
     }
 }
