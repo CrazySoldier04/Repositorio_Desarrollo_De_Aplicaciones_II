@@ -111,12 +111,7 @@ namespace ORM
             MessageBox.Show("Ups", "Ups", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-            MostrarDatos();
-        }
-
-        private void MostrarDatos()
+        private void CargaDatos()
         {
             try
             {
@@ -174,6 +169,55 @@ namespace ORM
             {
                 MessageBox.Show("Error general: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
+        }
+
+        private void Colores()
+        {
+            for (int i = 0; i < dgvBases.Rows.Count; i++)
+            {
+                if(dgvBases.Rows[i].Cells[7].Value.ToString() == "varchar")
+                {
+                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Red;
+                }
+                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "tinyint")
+                {
+                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Salmon;
+                }
+                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "int")
+                {
+                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.SeaGreen;
+                }
+                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "bigint")
+                {
+                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.SkyBlue;
+                }
+                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "datetime")
+                {
+                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Tan;
+                }
+                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "timestamp")
+                {
+                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Tomato;
+                }
+                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "double")
+                {
+                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.YellowGreen;
+                }
+                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "float")
+                {
+                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Aquamarine;
+                }
+                else if (dgvBases.Rows[i].Cells[7].Value.ToString() == "text")
+                {
+                    dgvBases.Rows[i].Cells[7].Style.BackColor = Color.Beige;
+                }
+            }
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            CargaDatos();
+            Colores();
         }
 
         private void cbTablas_SelectedIndexChanged(object sender, EventArgs e)
