@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Sistema_UTH.Models;
+using Sistema_UTH.Data;
 
 namespace Sistema_UTH
 {
@@ -41,7 +42,7 @@ namespace Sistema_UTH
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Sistema_UTHContext context)
         {
             if (env.IsDevelopment())
             {
@@ -63,6 +64,8 @@ namespace Sistema_UTH
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            DbInitializer.Initialize(context);
         }
     }
 }
