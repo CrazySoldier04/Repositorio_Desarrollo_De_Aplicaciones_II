@@ -17,14 +17,14 @@ namespace Sistema_UTH.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Sitio de gestión académica UTH.";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Contacto a desarrollo.";
 
             return View();
         }
