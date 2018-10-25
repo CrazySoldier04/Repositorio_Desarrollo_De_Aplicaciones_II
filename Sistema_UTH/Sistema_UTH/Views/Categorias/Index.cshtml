@@ -7,16 +7,29 @@
 <h2>Index</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Crear nueva categoría</a>
 </p>
+<form asp-action="Index" method="get">
+    <div class="form-action">
+        <p>
+            Filtro: <input type="text" name="searchString" value="@ViewData["CurrentFilter"]"/>
+            <input class="btn btn-success" type="submit" name="Buscar" value="Buscar"/>
+            <a asp-action="Index">Mostrar lista</a>
+        </p>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NombreSortParm"]">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DescripcionSortParm"]">
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Estado)
@@ -37,9 +50,9 @@
                 @Html.DisplayFor(modelItem => item.Estado)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CategoriaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CategoriaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoriaId">Delete</a>
+                <a asp-action="Editar" asp-route-id="@item.CategoriaId">Editar</a> |
+                <a asp-action="Detalles" asp-route-id="@item.CategoriaId">Detalle</a> |
+                <a asp-action="Borrar" asp-route-id="@item.CategoriaId">Borrar</a>
             </td>
         </tr>
 }
