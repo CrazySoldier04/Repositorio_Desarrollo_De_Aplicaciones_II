@@ -25,12 +25,12 @@ namespace Sistema_UTH.Controllers
             ViewData["ApellidoPaternoSortParm"] = sortOrder == "ap_asc" ? "ap_desc" : "ap_asc";
             ViewData["ApellidoMaternoSortParm"] = sortOrder == "am_asc" ? "am_desc" : "am_asc";
             ViewData["CurrentFilter"] = searchString;
-            var estudiante = from s in _context.Alumno select s;
+            var estudiante = from s in _context.Estudiante select s;
 
             //Verifica que el término de búsqueda trae searchstring si trae alguno, y verificar si contiene un nombre o descripcion.
             if (!String.IsNullOrEmpty(searchString))
             {
-                estudiante = estudiante.Where(s => s.Nombre.Contains(searchString) || s.Descripcion.Contains(searchString));
+                estudiante = estudiante.Where(s => s.Nombre.Contains(searchString) || s.ApellidoPaterno.Contains(searchString));
             }
 
             switch (sortOrder)
@@ -48,7 +48,7 @@ namespace Sistema_UTH.Controllers
                     estudiante = estudiante.OrderBy(s => s.Nombre);
                     break;
             }
-            return View(await _context.Alumno.ToListAsync());
+            return View(await _context.Estudiante.ToListAsync());
         }
 
         // GET: Estudiantes/Details/5
@@ -59,7 +59,7 @@ namespace Sistema_UTH.Controllers
                 return NotFound();
             }
 
-            var estudiante = await _context.Alumno
+            var estudiante = await _context.Estudiante
                 .FirstOrDefaultAsync(m => m.EstudianteId == id);
             if (estudiante == null)
             {
@@ -99,7 +99,7 @@ namespace Sistema_UTH.Controllers
                 return NotFound();
             }
 
-            var estudiante = await _context.Alumno.FindAsync(id);
+            var estudiante = await _context.Estudiante.FindAsync(id);
             if (estudiante == null)
             {
                 return NotFound();
@@ -150,7 +150,7 @@ namespace Sistema_UTH.Controllers
                 return NotFound();
             }
 
-            var estudiante = await _context.Alumno
+            var estudiante = await _context.Estudiante
                 .FirstOrDefaultAsync(m => m.EstudianteId == id);
             if (estudiante == null)
             {
@@ -165,15 +165,15 @@ namespace Sistema_UTH.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var estudiante = await _context.Alumno.FindAsync(id);
-            _context.Alumno.Remove(estudiante);
+            var estudiante = await _context.Estudiante.FindAsync(id);
+            _context.Estudiante.Remove(estudiante);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool EstudianteExists(int id)
         {
-            return _context.Alumno.Any(e => e.EstudianteId == id);
+            return _context.Estudiante.Any(e => e.EstudianteId == id);
         }
     }
 }

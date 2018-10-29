@@ -17,6 +17,6 @@ namespace Sistema_UTH.Models
 
         public DbSet<Sistema_UTH.Models.Categoria> Categoria { get; set; }
 
-        public DbSet<Sistema_UTH.Models.Estudiante> Alumno { get; set; }
+        public DbSet<Sistema_UTH.Models.Estudiante> Estudiante { get; set; }
     }
 }
