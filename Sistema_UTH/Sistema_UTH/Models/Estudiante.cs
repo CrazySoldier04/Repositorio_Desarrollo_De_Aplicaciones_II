@@ -30,7 +30,13 @@ namespace Sistema_UTH.Models
         }
         [StringLength(250)]
 
-        public Boolean ApellidoMaterno
+        public string ApellidoMaterno
+        {
+            get;
+            set;
+        }
+
+        public Boolean Estado
         {
             get;
             set;
