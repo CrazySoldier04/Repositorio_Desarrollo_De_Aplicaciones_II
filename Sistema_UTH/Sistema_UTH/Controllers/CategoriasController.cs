@@ -19,16 +19,28 @@ namespace Sistema_UTH.Controllers
         }
 
         // GET: Categorias
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+        public async Task<IActionResult> Index(string sortOrder, string searchString, string currentFilter, int? page)
         {
+            ViewData["CurrentSort"] = sortOrder;
             ViewData["NombreSortParm"] = String.IsNullOrEmpty(sortOrder) ? "nombre_desc" : "";
             ViewData["DescripcionSortParm"] = sortOrder == "descripcion_asc" ? "descripcion_desc" : "descripcion_asc";
             ViewData["CurrentFilter"] = searchString;
             var categorias = from s in _context.Categoria select s;
 
-            //Verifica que el término de búsqueda trae searchstring si trae alguno, y verificar si contiene un nombre o descripcion.
+            //Establece que los resultados a paginar son producto de una búsqueda, o son el primer despliegue..
             if (!String.IsNullOrEmpty(searchString))
             {
+                page = 1;
+                //categorias = categorias.Where(s => s.Nombre.Contains(searchString) || s.Descripcion.Contains(searchString));
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                //page = 1;
                 categorias = categorias.Where(s => s.Nombre.Contains(searchString) || s.Descripcion.Contains(searchString));
             }
 
@@ -49,7 +61,11 @@ namespace Sistema_UTH.Controllers
             }
             //return View(await _context.Categoria.ToListAsync());
             //Regresa la vista con el ordenamiento realizado a la colección categorías.
-            return View(await categorias.AsNoTracking().ToListAsync());
+            //return View(await categorias.AsNoTracking().ToListAsync());
+
+            //Establece cuántos registros por página se visualizan.
+            int pageSize = 5; //5 registros por páginas.
+            return View(await Paginacion<Categoria>.CreateAsync(categorias.AsNoTracking(), page??1, pageSize));
         }
 
         // GET: Categorias/Details/5

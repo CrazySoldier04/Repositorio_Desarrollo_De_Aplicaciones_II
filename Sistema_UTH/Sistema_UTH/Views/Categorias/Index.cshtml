@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Sistema_UTH.Models.Categoria>
+﻿@model Paginacion<Sistema_UTH.Models.Categoria>
 
 @{
     ViewData["Title"] = "Index";
@@ -22,17 +22,17 @@
     <thead>
         <tr>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NombreSortParm"]">
-                    @Html.DisplayNameFor(model => model.Nombre)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NombreSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                    Nombre
                 </a>
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["DescripcionSortParm"]">
-                    @Html.DisplayNameFor(model => model.Descripcion)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DescripcionSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                    Descripcion)
                 </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Estado)
+                Estado
             </th>
             <th></th>
         </tr>
@@ -52,9 +52,17 @@
             <td>
                 <a asp-action="Editar" asp-route-id="@item.CategoriaId">Editar</a> |
                 <a asp-action="Detalles" asp-route-id="@item.CategoriaId">Detalle</a> |
-                <a asp-action="Borrar" asp-route-id="@item.CategoriaId">Borrar</a>
+                <a class="btn btn-link disabled" asp-action="Borrar" asp-route-id="@item.CategoriaId">Borrar</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+@{ 
+    var preDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+ }
+
+    <a class="btn btn-primary @preDisabled" asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-page="@(Model.PageIndex-1)" asp-route-currentFilter="@ViewData["CurrentFilter"]">Atrás</a>
+    <a class="btn btn-link @nextDisabled" asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp_route-page="(@Model.PageIndex-1)" asp-route-currentFilter="@ViewData["CurrentFilter"]">Siguiente</a>
