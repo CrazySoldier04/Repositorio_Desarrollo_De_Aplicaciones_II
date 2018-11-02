@@ -27,6 +27,12 @@ namespace Sistema_UTH.Controllers
             ViewData["CurrentFilter"] = searchString;
             var categorias = from s in _context.Categoria select s;
 
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                //page = 1;
+                categorias = categorias.Where(s => s.Nombre.Contains(searchString) || s.Descripcion.Contains(searchString));
+            }
+
             //Establece que los resultados a paginar son producto de una búsqueda, o son el primer despliegue..
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -36,12 +42,6 @@ namespace Sistema_UTH.Controllers
             else
             {
                 searchString = currentFilter;
-            }
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                //page = 1;
-                categorias = categorias.Where(s => s.Nombre.Contains(searchString) || s.Descripcion.Contains(searchString));
             }
 
             switch (sortOrder)

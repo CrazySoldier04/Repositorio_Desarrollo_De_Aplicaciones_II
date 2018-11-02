@@ -28,7 +28,7 @@
             </th>
             <th>
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["DescripcionSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">
-                    Descripcion)
+                    Descripcion
                 </a>
             </th>
             <th>
@@ -52,7 +52,7 @@
             <td>
                 <a asp-action="Editar" asp-route-id="@item.CategoriaId">Editar</a> |
                 <a asp-action="Detalles" asp-route-id="@item.CategoriaId">Detalle</a> |
-                <a class="btn btn-link disabled" asp-action="Borrar" asp-route-id="@item.CategoriaId">Borrar</a>
+                <a asp-action="Borrar" asp-route-id="@item.CategoriaId">Borrar</a>
             </td>
         </tr>
 }
@@ -64,5 +64,9 @@
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
  }
 
-    <a class="btn btn-primary @preDisabled" asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-page="@(Model.PageIndex-1)" asp-route-currentFilter="@ViewData["CurrentFilter"]">Atrás</a>
-    <a class="btn btn-link @nextDisabled" asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp_route-page="(@Model.PageIndex-1)" asp-route-currentFilter="@ViewData["CurrentFilter"]">Siguiente</a>
+    <a class="btn btn-default @preDisabled" asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-page="@(Model.PageIndex-1)" asp-route-currentFilter="@ViewData["CurrentFilter"]">Atrás</a>
+    @for (int i=1; i < Model.TotalPages; i++)
+    {
+        <a class="btn btn-danger" asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-page="@i" asp-route-currentFilter="@ViewData["CurrentFilter"]">@i</a>
+    }
+    <a class="btn btn-default @nextDisabled" asp-action="Index" asp-route-sortOrder="@ViewData["CurrentSort"]" asp-route-page="@(Model.PageIndex+1)" asp-route-currentFilter="@ViewData["CurrentFilter"]">Siguiente</a>

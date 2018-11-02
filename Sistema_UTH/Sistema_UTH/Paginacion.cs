@@ -29,7 +29,7 @@ namespace Sistema_UTH
         public Paginacion (List<T> items, int pageIndex, int count, int pageSize)
         {
             PageIndex = pageIndex;
-            TotalPages = (int)Math.Ceiling(Count / (double)pageSize);
+            TotalPages = (int)Math.Ceiling(count / (double)pageSize);
             TotalResults = count;
             this.AddRange(items);
         }
