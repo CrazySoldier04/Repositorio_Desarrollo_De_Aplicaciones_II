@@ -50,7 +50,7 @@ namespace Sistema_UTH
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Home/Error"); 
                 app.UseHsts();
             }
 
