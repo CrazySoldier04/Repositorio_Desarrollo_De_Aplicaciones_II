@@ -10,7 +10,8 @@ namespace ConexionDB
     public class ExecuteQuery
     {
         public static string MsgServidor;
-        public static bool CreaTablaMysql(string query) {
+        public static bool CreaTablaMysql(string query)
+        {
             Ibd bd = new ConectaMysql();
             bool res = bd.ExecutaQueryTabla(query);
             if (res)
@@ -26,7 +27,8 @@ namespace ConexionDB
                 return false;
             }
         }
-        public static bool InsertIntoMysql(string Query) {
+        public static bool InsertIntoMysql(string Query)
+        {
             Ibd bd = new ConectaMysql();
             bool res = bd.ExecutaQueryTabla(Query);
             if (res)

@@ -27,8 +27,7 @@ namespace ConexionDB
             bool res = false;
             try
             {
-                con = new MySqlConnection(conexion);
-        con.Open();
+                con = new MySqlConnection("server=127.0.0.1;port=3306;user=root;password=salazar;Database=cagada");
                 res = true;
             }
             catch (MySqlException mse)
@@ -41,14 +40,17 @@ namespace ConexionDB
             }
             return res;
         }
+
         public bool Abrir()
         {
             bool res = false;
             try
             {
-                con = new MySqlConnection("server=127.0.0.1;port=3306;user=root;password=0420;Database=pruebas_mysql");  //"Server =localhost;Database=sopTec;Uid=root;Pwd=Qwer1234");
-                con.Open();
-                res = true;
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                    res = true;
+                }
             }
             catch (MySqlException mse)
             {
@@ -307,6 +309,7 @@ namespace ConexionDB
             }
             return res;
         }
+
         public bool ExecutaQueryTabla(string query)
         {
             bool res = false;
@@ -317,8 +320,6 @@ namespace ConexionDB
                     com = new MySqlCommand(query, con);
                     ResultNonQuery = com.ExecuteNonQuery();
                     res = true;
-
-
                 }
             }
             catch (Exception ex)
@@ -333,6 +334,7 @@ namespace ConexionDB
 
             return res;
         }
+
         public bool ExecutaQueryInsert(string query)
         {
             bool res = false;
@@ -343,8 +345,6 @@ namespace ConexionDB
                     com = new MySqlCommand(query, con);
                     ResultNonQuery = com.ExecuteNonQuery();
                     res = true;
-
-
                 }
             }
             catch (Exception ex)
@@ -356,14 +356,7 @@ namespace ConexionDB
             {
                 DesconectaDB();
             }
-
             return res;
         }
-
-
     }
-
 }
-
-
-
