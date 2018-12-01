@@ -22,7 +22,7 @@ namespace Threads_Bombas
         {
             Console.WriteLine("El carro: " + id + " quiere echar gasolina");
             s.WaitOne();
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             Console.WriteLine("\r\n");
             Console.WriteLine("El carro: " + id + " entró a la bomba de gasolina");
             Thread.Sleep(2000);
@@ -30,10 +30,11 @@ namespace Threads_Bombas
             Thread.Sleep(3000);
             Console.WriteLine("El carro: " + id + " está cargando gasolina");
             Console.WriteLine("Hilo: " + Thread.CurrentThread.ThreadState);
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
             Console.WriteLine("El carro: " + id + " terminó de cargar gasolina");
+            Thread.Sleep(4000);
             Console.WriteLine("El carro: " + id + " salió de la bomba \r\n");
-            Console.WriteLine("Bomba de gasolina esta libre \r\n");
+            Console.WriteLine("Bomba de gasolina esta libre");
             s.Release();
             Thread.Sleep(2000);
             //Console.WriteLine("Estado: {0}", new ThreadState());
