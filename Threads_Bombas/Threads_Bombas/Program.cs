@@ -22,15 +22,20 @@ namespace Threads_Bombas
         {
             Console.WriteLine("El carro: " + id + " quiere echar gasolina");
             s.WaitOne();
+            Thread.Sleep(2000);
+            Console.WriteLine("\r\n");
             Console.WriteLine("El carro: " + id + " entró a la bomba de gasolina");
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             Console.WriteLine("El carro: " + id + " escaneó el codigo qr");
+            Thread.Sleep(3000);
             Console.WriteLine("El carro: " + id + " está cargando gasolina");
-            //Console.WriteLine("Estado: {0}", new ThreadState());
+            Console.WriteLine("Hilo: " + Thread.CurrentThread.ThreadState);
+            Thread.Sleep(5000);
             Console.WriteLine("El carro: " + id + " terminó de cargar gasolina");
             Console.WriteLine("El carro: " + id + " salió de la bomba \r\n");
+            Console.WriteLine("Bomba de gasolina esta libre \r\n");
             s.Release();
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             //Console.WriteLine("Estado: {0}", new ThreadState());
         }
     }
