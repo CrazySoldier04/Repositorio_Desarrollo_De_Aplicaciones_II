@@ -9,10 +9,10 @@ namespace Threads_Bombas
 {
     class Program
     {
-        static Semaphore s = new Semaphore(1, 2);
+        static Semaphore s = new Semaphore(1, 3);
         static void Main(string[] args)
         {
-            for (int i = 1; i < 6; i++)
+            for (int i = 1; i < 4; i++)
             {
                 new Thread(Program.Metodo).Start(i);
             }
@@ -24,11 +24,14 @@ namespace Threads_Bombas
             s.WaitOne();
             Console.WriteLine("El carro: " + id + " entró a la bomba de gasolina");
             Thread.Sleep(1000);
-            Console.WriteLine("Estado: {0}", new ThreadState());
-            Console.WriteLine("El carro: " + id + " salió de la bomba");
+            Console.WriteLine("El carro: " + id + " escaneó el codigo qr");
+            Console.WriteLine("El carro: " + id + " está cargando gasolina");
+            //Console.WriteLine("Estado: {0}", new ThreadState());
+            Console.WriteLine("El carro: " + id + " terminó de cargar gasolina");
+            Console.WriteLine("El carro: " + id + " salió de la bomba \r\n");
             s.Release();
             Thread.Sleep(1000);
-            Console.WriteLine("Estado: {0}", new ThreadState());
+            //Console.WriteLine("Estado: {0}", new ThreadState());
         }
     }
 }
