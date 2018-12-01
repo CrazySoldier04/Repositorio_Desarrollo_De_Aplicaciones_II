@@ -23,19 +23,17 @@ namespace Hilos_Monitor_Lock
         private static void PorMutex()
         {
             mutex.WaitOne();   // Wait until it is safe to enter.
-            Console.WriteLine("{0} ha entrado a la sección critica mutex",
-                Thread.CurrentThread.Name);
+            Console.WriteLine("{0} ha entrado a la sección critica mutex", Thread.CurrentThread.Name);
             // Place code to access non-reentrant resources here.
             Thread.Sleep(500);    // Wait until it is safe to enter.
-            Console.WriteLine("{0} ha entrado a la sección critica mutex \r\n",
-                Thread.CurrentThread.Name);
+            Console.WriteLine("{0} ha entrado a la sección critica mutex \r\n", Thread.CurrentThread.Name);
             mutex.ReleaseMutex();    // Release the Mutex.
         }
-        //monitor
+
+        //Monitor
         static readonly object _object = new object();
         public static void PrintNumbers()
         {
-
             //monitor
             Monitor.Enter(_object);
             try
