@@ -9,7 +9,7 @@ namespace Hilos_Monitor_Lock
 {
     class Program
     {
-        //mutex
+        //mutex 
         private static Mutex mutex = new Mutex();
         private const int numhits = 1;
         private const int numThreads = 4;
